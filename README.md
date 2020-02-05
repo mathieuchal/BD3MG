@@ -2,7 +2,7 @@
 
 This repository contains the Python implementation of the *Block Distributed Majorize-Minimize Memory Gradient Algorithm* applied to the problem of 3D images restoration potentially handling a depth-variant blur. 
 
-![Deblurring](/images/logo.png)
+![Deblurring](/flybrainrec.png)
 
 ### Prerequisites and installation
 These instructions will get you a copy of the BD3MG algorithm running on your multi-processor local or remote Unix machine. Note that BD3MG is based on the python multiprocessing library in order to handle process distribution. If you want to get the code working on other distributions (Windows and MacOs), you might need to change process afinity handling in the code.
