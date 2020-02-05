@@ -4,7 +4,7 @@ import time
 import multiprocessing as mp
 from BP3MG.BP3MG_Synchronous.ComputeCriterionPar import ComputeCriterionPar
 from BP3MG.BP3MG_Synchronous.LOOP3MGpar import LOOP3MGpar
-import matplotlib.pyplot as plt
+
 
 class PAR3MG_Master_worker(mp.Process):
 
@@ -69,15 +69,9 @@ class PAR3MG_Master_worker(mp.Process):
         self.Time.append(0)
 
         for k in range(1,self.NbIt+1):
-            #load = [process.cpu_num() for process in psutil.process_iter() if process.pid in self.PIDs]
-            #print(load)
-            #stats = psutil.cpu_percent(percpu=True)
-            #self.cpu_per_cent.append(stats)
-            #for i in range(len(stats)):
-            #    print('{} cpu : {}'.format(i,stats[i]))
 
             # ENVOI DES VECTEURS SYNCHRONISES ET PRET A RECEVOIR
-            #print('start sending tasks')
+
             self.start = time.time()
 
             for c in range(self.num_workers-1):
@@ -85,10 +79,6 @@ class PAR3MG_Master_worker(mp.Process):
                 Blk = self.blocklist[c]
                 lb = len(Blk)
                 idx = k%lb
-                #print('blocklist = ', Blk)
-                #print('init', self.init)
-                #print('idx = ', idx)
-                #print('Blk idx = ', Blk[idx])
                 self.sending_update(self.connections[c][0], Blk[idx], self.init[Blk[idx]], self.p3)
                 #Computation by workers at this point
 
@@ -100,7 +90,6 @@ class PAR3MG_Master_worker(mp.Process):
                 self.x[:,:,z] = xloc.reshape((self.Nx,self.Ny))
                 self.dx[:,:,z] = dxloc.reshape((self.Nx, self.Ny))
                 self.critz[z] = critz
-                #print('Master received update for altitude =',z)
                 self.init[z] = 1
 
             self.Time.append(time.time()-self.start)
@@ -119,30 +108,12 @@ class PAR3MG_Master_worker(mp.Process):
                 print('MAXIMAL TIME!!')
                 break
 
-        """
-        #self.cpu_per_cent = np.array(self.cpu_per_cent)
-        #self.cpu_per_cent = np.mean(self.cpu_per_cent,axis=0)
-        #fig, ax = plt.subplots()
-        #ax.bar(np.arange(0, len(stats)), stats,color='green')
-        #ax.bar(np.arange(0, len(stats)),np.tile([100],len(stats)),color='None',edgecolor='red')
-        #ax.set_ylim([0, 105])
-        #ax.set_title('Computing load per CPU')
-        #fig.savefig('CPUload')
-        #plt.show()
-
-        plt.imshow(self.x[:,:,15])
-        plt.savefig('Subsampled FlyBrain after 3 iterations at altitude z =15 ')
-        plt.show()
-        """
-
         for w in self.Workers:
             w.terminate()
 
         self.connec.send((self.x, self.dx, self.Crit, self.Time, self.NormX, self.SNR))
 
     def sending_update(self, connec, z, init, p3):
-        #print(' x sent : ', np.linalg.norm(self.x[:,:,z], 1))
-        #print('dx sent : ', np.linalg.norm(self.dx[:, :,z], 1))
         package = (self.x[:,:,max(0,z-2*p3):min(self.Nz,z+2*p3+1)].copy(),
                    self.dx[:,:,z].copy(),
                    z,
@@ -174,9 +145,6 @@ class PAR3MG_slave_worker(mp.Process):
         self.xmin = xmin
         self.xmax = xmax
         self.setting = setting
-
-        #self.task_queue = task_queue
-        #self.result_queue = result_queue
         self.connection = connection
 
     def run(self):
@@ -194,24 +162,15 @@ class PAR3MG_slave_worker(mp.Process):
                     time.sleep(np.random.uniform(0,0.5))
                 elif self.c%3==2:
                     time.sleep(np.random.uniform(0,0.25))
-            #print('slave start for labindex =', z)
-            #list of shared indices
+
             list_n3 = np.arange(max(0,z-2*self.p3),min(self.Nz,z+2*self.p3+1))
-            #print(z,list_n3)
-            #print(x_share_z.shape)
-            #print(z, int(init_z), list_n3, np.linalg.norm(dx_share_z.flatten(),1).astype(str))
-            #print([np.linalg.norm(x_share_z[:,:,k],1).astype(str) for k in range(10)])
-            #print(np.linalg.norm(x_share_z.flatten(),1))
             xloc, dxloc = LOOP3MGpar(z, init_z, x_share_z, list_n3, dx_share_z, self.Hty[:,:,z], self.H1[:,:,z], self.H, self.Nx, self.Ny, self.Nz, self.eta, self.lambda_ , self.delta, self.kappa, self.phi, self.xmin, self.xmax, self.p3)
-            #xloc = np.around(xloc,2)
-            #dxloc = np.around(dxloc,2)
             self.x[:, :, list_n3] = x_share_z
             self.dx[:, :, z] = dx_share_z
             self.x[:, :, z] = xloc.reshape((self.Nx, self.Ny))
             self.dx[:, :, z] = dxloc.reshape((self.Nx, self.Ny))
             critz = ComputeCriterionPar(z, self.x, self.H, self.y, self.phi, self.eta, self.lambda_, self.delta, self.kappa, self.xmin, self.xmax, self.Nx, self.Ny, self.Nz)
             self.connection.send((xloc, dxloc, z, critz))
-            #print(psutil.cpu_times(percpu=False))
-            #print('slave end for labindex =', z)
+
 
 

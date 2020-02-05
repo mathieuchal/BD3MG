@@ -1,4 +1,3 @@
-
 import warnings
 import os
 from BP3MG.BP3MG_Synchronous.ComputeCriterionPar import ComputeCriterionPar
@@ -7,7 +6,6 @@ from BP3MG.BP3MG_Synchronous.set_blocks import set_blocks
 import multiprocessing as mp
 import time
 import numpy as np
-import matplotlib.pyplot as plt
 from scipy.io import loadmat
 warnings.filterwarnings("ignore")
 
@@ -58,7 +56,7 @@ class PAR3MG_MPI:
 
         """ == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == ==
         MM - MG Algorithm, Version 1.0
-        Kindly report any suggestions or corrections to emilie.chouzenoux @ univ - mlv.fr
+        Kindly report any suggestions or corrections to mathieu.chalvidal@cnrs.fr
         ----------------------------------------------------------------------
         
         Input: 
@@ -109,29 +107,11 @@ class PAR3MG_MPI:
         print('lambda = ', self.lambda_ , ', delta = ', self.delta, ', eta = ', self.eta, ' and kappa = ', self.kappa)
         print('xmin = ', self.xmin, ' and xmax = ', self.xmax)
 
-        #Hop = lambda x : apply_PSFvar3D(x, h)
-        #Hop_adj = lambda y : apply_PSFadjvar3D(y, h)
 
         #self.Time.append(time.time())
         self.Ndx.append(np.inf)
         self.NormX.append(np.linalg.norm(self.x-self.xstar))
         #dx = self.x
-
-        #creating pool worker and initializing shared array
-        #self.X = mp.RawArray('d',self.Nx*self.Ny*self.Nz)
-        #self.X_np = np.frombuffer(self.X).reshape(self.x.shape)
-        #np.copyto(self.X_np, self.x)
-
-        #pool = mp.Pool(processes=self.cores_number, initargs=(self.X))
-        #start = time.time()
-        #self.critz = [pool.apply(ComputeCriterionPar, args=(z, self.X_np, self.h, self.y, self.phi, self.eta, self.lambda_, self.delta, self.kappa, self.xmin, self.xmax, self.Nx, self.Ny, self.Nz)) for z in range(self.Nz)]
-        #pool.close()
-        #print('elapsed time', time.time() - start)
-
-        #self.Crit.append(np.sum(self.critz))
-        #self.Time.append(0)
-        #print('Initial criterion value = ', self.Crit[-1])
-
 
     # Start Master and Workers
         self.connec = mp.Pipe()
@@ -152,12 +132,6 @@ class PAR3MG_MPI:
         self.SNRs = SNR
         #self.Time = Master.Time
 
-        #plt.plot(self.Crit,label='python')
-        #plt.plot(loadmat('/home/mathieuchalvidal/Downloads/bp3mg/Critblkmpi.mat')['Critblkmpi'].T,label='matlab')
-        #plt.legend()
-        #plt.title('Evolution of F(xk) under Matlab and Python for {} iterations with {} workers'.format(self.NbIt,self.cores_number-1))
-        #plt.savefig('Aneurysm2_64x64x24_6workers')
-        #plt.show()
 
         print('Iteration number = ', len(self.Crit))
         print('Computation time (cpu) =', self.Time[-1])

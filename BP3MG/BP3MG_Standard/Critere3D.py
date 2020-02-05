@@ -11,11 +11,7 @@ def Critere3D(x, y, H, H_adj, eta, lambda_, kappa, delta, phi, xmin, xmax):
     phiZ = phi[1]
 
     Vvx, Vhx, Vtx = Voperator3D(x)
-
-    #print(np.linalg.norm(Vvx.flatten(),1))
-    #print(np.linalg.norm(Vhx.flatten(),1))
-    #print(np.linalg.norm(Vtx.flatten(),1))
-
+    
     if phiXY == 1:
         phiXY_Vx = (1-np.exp(-((np.sqrt(Vvx**2 + Vhx**2))**2)/(2*delta**2)))
         wXY_Vx = (1/delta**2)*np.exp(-((np.sqrt(Vvx**2 + Vhx**2))**2)/(2*delta**2))

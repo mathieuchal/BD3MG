@@ -154,23 +154,6 @@ class MajorizeMinimizeMemoryGradient3D:
                 Vtdx = -s*Vtg
 
 
-            #MEMORY
-            # vv = whos;
-            # mem = 0;
-            # for j=1:length(vv)
-            # mem = mem + vv(j).bytes;
-            # end
-            # Mem0 = mem * 1e-6;
-            # disp(['   Memory before clear =', num2str(Mem0), ' MB']);
-
-            #clear
-            #Grad, clear
-            #Vvg, clear
-            #Vhg, clear
-            #Vtg, clear
-            #Hg, clear
-            #B
-
             else:
 
                 B = self.majorante2(x, -Grad, dx, -Vvg, -Vhg, -Vtg, Vvdx, Vhdx, Vtdx, -Hg, Hdx, self.phi, self.eta, self.lambda_ , self.kappa, self.delta, self.xmin, self.xmax)
@@ -202,7 +185,6 @@ class MajorizeMinimizeMemoryGradient3D:
                 """
 
             # update, critere and error computation, time storage
-            #print(np.linalg.norm(dx.flatten(),1))
             x = x + dx
 
             Cri, Grad = Critere3D(x, self.y, self.H, self.H_adj, self.eta, self.lambda_ , self.kappa, self.delta, self.phi, self.xmin, self.xmax)

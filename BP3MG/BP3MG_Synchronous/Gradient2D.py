@@ -1,4 +1,3 @@
-
 import numpy as np
 from BP3MG.BP3MG_Synchronous.Voperator import Voperator
 from BP3MG.BP3MG_Synchronous.Voperatoradj import Vhoperatoradj, Vvoperatoradj
