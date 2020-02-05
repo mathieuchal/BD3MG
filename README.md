@@ -21,20 +21,19 @@ pip install -r requirements.txt
 
 ## Testing
 
-To ensure that the algorithm functions well on your machine, you can try the synthetic deblurring and denoising problem proposed in the package by entering
+To ensure that the algorithm functions well on your machine, you can try the synthetic deblurring and denoising problem proposed in the package by entering the following commands.
 
 ```
 cd BD3MG 
-python test_asynch.py
+python BP3MG_Asynchronous/test_asynch.py
 ```
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+The code should start with initializing a synthetic 3D blurry and noisy image with 
+``
+Create blurry and noisy image
+size image: Nx = 128, Ny = 128, Nz = 24
+size kernel: Nx = 5, Ny = 5, Nz = 11
+...
+``
 
 ## Authors
 
