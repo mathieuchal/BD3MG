@@ -1,8 +1,7 @@
 import time
 import numpy as np
-from BP3MG.BP3MG_Standard.Critere3D import Critere3D
-from BP3MG.BP3MG_Standard.Voperator3D import *
-import matplotlib.pyplot as plt
+from BP3MG_Standard.Critere3D import Critere3D
+from BP3MG_Standard.Voperator3D import *
 
 class MajorizeMinimizeMemoryGradient3D:
 

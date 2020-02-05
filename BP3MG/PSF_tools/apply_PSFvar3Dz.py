@@ -1,5 +1,5 @@
 import numpy as np
-from BP3MG.PSF_tools.conv2D_fourier import conv2D_fourier
+from PSF_tools.conv2D_fourier import conv2D_fourier
 def apply_PSFvar3Dz(x, z, a):
 
     """

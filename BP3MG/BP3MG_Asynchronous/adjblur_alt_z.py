@@ -1,8 +1,8 @@
 import numpy as np
 #from PSF_tools.gaussian_kernel_3D import gaussian_kernel_3D
-from BP3MG.PSF_tools.applyPSFadjvar3Dz import applyPSFadjvar3Dz
+from PSF_tools.applyPSFadjvar3Dz import applyPSFadjvar3Dz
 from scipy.signal import convolve
-from BP3MG.h import h
+from PSF_tools.h import h
 
 def adjblur_alt_z(Iblurnoisy, z, Nh, Nx, Ny, Nz, Sx, Sy, Sz, Phiy, Phiz):
     Htyz = applyPSFadjvar3Dz(Iblurnoisy, z, Nh, Sx, Sy, Sz, Phiy, Phiz)

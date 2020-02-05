@@ -1,6 +1,6 @@
 import numpy as np
 from numpy.fft import fft2, ifft2
-from BP3MG.PSF_tools.freqfilt2D import freqfilt2D
+from PSF_tools.freqfilt2D import freqfilt2D
 
 def conv2D_fourier(D, a):
     """

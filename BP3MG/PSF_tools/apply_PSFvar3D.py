@@ -1,5 +1,5 @@
 import numpy as np
-from BP3MG.PSF_tools.conv3D_fourier import conv3D_fourier
+from PSF_tools.conv3D_fourier import conv3D_fourier
 #from scipy.signal import convolve
 
 

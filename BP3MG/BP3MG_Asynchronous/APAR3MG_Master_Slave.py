@@ -3,8 +3,8 @@ import os
 import time
 import multiprocessing as mp
 import select
-from BP3MG.BP3MG_Synchronous.ComputeCriterionPar import ComputeCriterionPar
-from BP3MG.BP3MG_Synchronous.LOOP3MGpar import LOOP3MGpar
+from BP3MG_Synchronous.ComputeCriterionPar import ComputeCriterionPar
+from BP3MG_Synchronous.LOOP3MGpar import LOOP3MGpar
 import matplotlib.pyplot as plt
 
 class APAR3MG_Master_worker(mp.Process):

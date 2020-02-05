@@ -1,6 +1,6 @@
 from numpy.fft import ifftn,fftn
 import numpy as np
-from BP3MG.PSF_tools.conv2Dadjoint_fourier import conv2Dadjoint_fourier
+from PSF_tools.conv2Dadjoint_fourier import conv2Dadjoint_fourier
 
 def apply_PSFadjvar3D(x, h):
 

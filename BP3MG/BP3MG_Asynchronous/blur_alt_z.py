@@ -1,6 +1,6 @@
 import numpy as np
-from BP3MG.PSF_tools.gaussian_kernel_3D import gaussian_kernel_3D
-from BP3MG.PSF_tools.apply_PSFvar3Dz import apply_PSFvar3Dz
+from PSF_tools.gaussian_kernel_3D import gaussian_kernel_3D
+from PSF_tools.apply_PSFvar3Dz import apply_PSFvar3Dz
 
 
 def blur_alt_z(I, Nh, Nx, Ny, Sx, Sy, Sz, Phiy, Phiz, sigma, z):

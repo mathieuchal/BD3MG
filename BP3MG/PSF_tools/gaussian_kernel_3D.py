@@ -1,5 +1,5 @@
 import numpy as np
-from BP3MG.PSF_tools.rotation3d import rotation3d
+from PSF_tools.rotation3d import rotation3d
 
 def gaussian_kernel_3D(k, sigma, phi):
 

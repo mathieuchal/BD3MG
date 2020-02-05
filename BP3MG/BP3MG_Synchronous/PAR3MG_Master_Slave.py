@@ -2,8 +2,8 @@ import numpy as np
 import os
 import time
 import multiprocessing as mp
-from BP3MG.BP3MG_Synchronous.ComputeCriterionPar import ComputeCriterionPar
-from BP3MG.BP3MG_Synchronous.LOOP3MGpar import LOOP3MGpar
+from BP3MG_Synchronous.ComputeCriterionPar import ComputeCriterionPar
+from BP3MG_Synchronous.LOOP3MGpar import LOOP3MGpar
 
 
 class PAR3MG_Master_worker(mp.Process):

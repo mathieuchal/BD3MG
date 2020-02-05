@@ -1,5 +1,5 @@
 import numpy as np
-from BP3MG.PSF_tools.freqfilt3D import freqfilt3D
+from PSF_tools.freqfilt3D import freqfilt3D
 
 
 def conv3D_fourier(D, a):

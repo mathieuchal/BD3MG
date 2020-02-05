@@ -1,7 +1,7 @@
 import warnings
 import os
-from BP3MG.BP3MG_Asynchronous.APAR3MG_Master_Slave import APAR3MG_Master_worker
-from BP3MG.BP3MG_Synchronous.set_blocks import set_blocks
+from BP3MG_Asynchronous.APAR3MG_Master_Slave import APAR3MG_Master_worker
+from BP3MG_Synchronous.set_blocks import set_blocks
 import multiprocessing as mp
 import numpy as np
 warnings.filterwarnings("ignore")

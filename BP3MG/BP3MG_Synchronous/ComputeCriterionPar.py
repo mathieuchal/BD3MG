@@ -1,5 +1,5 @@
-from BP3MG.PSF_tools.apply_PSFvar3Dz import apply_PSFvar3Dz
-from BP3MG.BP3MG_Synchronous.Voperator import Voperator
+from PSF_tools.apply_PSFvar3Dz import apply_PSFvar3Dz
+from BP3MG_Synchronous.Voperator import Voperator
 import numpy as np
 
 def ComputeCriterionPar(z, x, H, y, phi, eta, lambda_, delta, tau, xmin, xmax, Nx, Ny, Nz):

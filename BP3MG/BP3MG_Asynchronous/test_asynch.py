@@ -1,17 +1,16 @@
 import warnings
 import multiprocessing as mp
 import time
-import os
+import os, sys
 import numpy as np
 from scipy.io import loadmat
-import matplotlib.pyplot as plt
 warnings.filterwarnings("ignore")
+sys.path.append(os.getcwd())
 
-from BP3MG.BP3MG_Asynchronous.APAR3MG_MPI import APAR3MG_MPI
-from BP3MG.PSF_tools.gaussian_kernel_3D import gaussian_kernel_3D
-from BP3MG.blur_alt_z import blur_alt_z
-from BP3MG.adjblur_alt_z import adjblur_alt_z
-
+from BP3MG_Asynchronous.APAR3MG_MPI import APAR3MG_MPI
+from PSF_tools.gaussian_kernel_3D import gaussian_kernel_3D
+from blur_alt_z import blur_alt_z
+from adjblur_alt_z import adjblur_alt_z
 
 #Loading image
 I = loadmat(os.getcwd() + '/Images/FlyBrain.mat')['I']

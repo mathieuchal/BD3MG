@@ -1,5 +1,5 @@
-from BP3MG.PSF_tools.conv2Dadjoint_fourier import conv2Dadjoint_fourier
-from BP3MG.PSF_tools.apply_PSFvar3Dz_block import apply_PSFvar3Dz_block
+from PSF_tools.conv2Dadjoint_fourier import conv2Dadjoint_fourier
+from PSF_tools.apply_PSFvar3Dz_block import apply_PSFvar3Dz_block
 import numpy as np
 
 def apply2PSFadjvar3Dz_block(x_share, list_n3, z, H, N3):

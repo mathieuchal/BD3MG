@@ -1,10 +1,10 @@
 import numpy as np
-from BP3MG.BP3MG_Synchronous.Voperator import Voperator
-from BP3MG.BP3MG_Synchronous.apply2PSFadjvar3Dz import apply2PSFadjvar3Dz_block
-from BP3MG.BP3MG_Synchronous.Gradient2D import gradient2D
-from BP3MG.PSF_tools.conv2D_fourier import conv2D_fourier
-from BP3MG.PSF_tools.conv2Dadjoint_fourier import conv2Dadjoint_fourier
-from BP3MG.BP3MG_Synchronous.majorantem import majorantem
+from BP3MG_Synchronous.Voperator import Voperator
+from BP3MG_Synchronous.apply2PSFadjvar3Dz import apply2PSFadjvar3Dz_block
+from BP3MG_Synchronous.Gradient2D import gradient2D
+from PSF_tools.conv2D_fourier import conv2D_fourier
+from PSF_tools.conv2Dadjoint_fourier import conv2Dadjoint_fourier
+from BP3MG_Synchronous.majorantem import majorantem
 from scipy.signal import convolve
 from scipy.io import loadmat
 
