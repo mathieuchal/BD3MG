@@ -5,7 +5,7 @@ This repository contains the Python implementation of the *Block Distributed Maj
 ![Deblurring](/flybrainrec.png)
 
 ### Prerequisites and installation
-These instructions will get you a copy of the BD3MG, BP3MG and 3MG algorithms running on your multi-processor local or remote Unix machine. Note that the two distributed algorithms are based on the python multiprocessing library in order to handle process distribution. If you want to get the code working on other distributions (Windows and MacOs), you might need to change process afinity handling in the code.
+These instructions will get you a copy of the BD3MG, BP3MG and 3MG algorithms running on your multi-processor local or remote Unix machine. The two first algorithms are parallelized on available machine cores. They use the python multiprocessing library in order to handle process distribution of the computations. If you want to get the code working on other distributions (Windows and MacOs), you might need to change process afinity handling in the code.
 
 This version of the algorithms runs on Python (>=3.5) with common libraries listed in the *requirements.txt* file.
 
@@ -25,7 +25,7 @@ To ensure that the algorithm functions well on your machine, you can try the syn
 
 ```
 cd BD3MG 
-python BP3MG_Asynchronous/test_asynch.py
+python BD3MG/test_asynch.py
 ```
 The code should start with initializing a synthetic 3D blurry and noisy image with 
 ``
