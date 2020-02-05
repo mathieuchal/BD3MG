@@ -1,6 +1,6 @@
 import numpy as np
 from BP3MG.Voperator import Voperator
-from BP3MGs.apply2PSFadjvar3Dz import apply2PSFadjvar3Dz_block
+from BP3MG.apply2PSFadjvar3Dz import apply2PSFadjvar3Dz_block
 from BP3MG.Gradient2D import gradient2D
 from PSF_tools.conv2D_fourier import conv2D_fourier
 from PSF_tools.conv2Dadjoint_fourier import conv2Dadjoint_fourier
