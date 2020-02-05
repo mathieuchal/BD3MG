@@ -1,8 +1,8 @@
 import warnings
 import os
-from BP3MG.BP3MG_Synchronous.ComputeCriterionPar import ComputeCriterionPar
-from BP3MG.BP3MG_Synchronous.PAR3MG_Master_Slave import PAR3MG_Master_worker
-from BP3MG.BP3MG_Synchronous.set_blocks import set_blocks
+from BP3MG.ComputeCriterionPar import ComputeCriterionPar
+from BP3MG.PAR3MG_Master_Slave import PAR3MG_Master_worker
+from BP3MG.set_blocks import set_blocks
 import multiprocessing as mp
 import time
 import numpy as np

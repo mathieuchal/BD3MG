@@ -5,10 +5,10 @@ import numpy as np
 from scipy.io import loadmat
 warnings.filterwarnings("ignore")
 
-from BP3MG_Synchronous.PAR3MG_MPI import PAR3MG_MPI
+from BP3MG.PAR3MG_MPI import PAR3MG_MPI
 from PSF_tools.gaussian_kernel_3D import gaussian_kernel_3D
-from BP3MG_Asynchronous.blur_alt_z import blur_alt_z
-from BP3MG_Asynchronous.adjblur_alt_z import adjblur_alt_z
+from BD3MG.blur_alt_z import blur_alt_z
+from BD3MG.adjblur_alt_z import adjblur_alt_z
 
 
 #Loading image

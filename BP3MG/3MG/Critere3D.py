@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.signal import convolve
-from BP3MG.BP3MG_Standard.Gaussian3D import Gaussian3D
-from BP3MG.BP3MG_Standard.Voperator3D import *
+from 3MG.Gaussian3D import Gaussian3D
+from 3MG.Voperator3D import *
 import scipy.io
 import time
 

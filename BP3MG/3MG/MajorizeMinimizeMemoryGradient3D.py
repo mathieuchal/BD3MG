@@ -1,7 +1,7 @@
 import time
 import numpy as np
-from BP3MG_Standard.Critere3D import Critere3D
-from BP3MG_Standard.Voperator3D import *
+from 3MG.Critere3D import Critere3D
+from 3MG.Voperator3D import *
 
 class MajorizeMinimizeMemoryGradient3D:
 

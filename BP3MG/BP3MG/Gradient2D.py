@@ -1,6 +1,6 @@
 import numpy as np
-from BP3MG_Synchronous.Voperator import Voperator
-from BP3MG_Synchronous.Voperatoradj import Vhoperatoradj, Vvoperatoradj
+from BP3MG.Voperator import Voperator
+from BP3MG.Voperatoradj import Vhoperatoradj, Vvoperatoradj
 
 def gradient2D(x, dJ, eta, lambda_ , delta, phi, xmin, xmax, Nx, Ny):
 
